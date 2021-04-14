@@ -1,0 +1,35 @@
+ALGORITHM card_insertion
+VAR
+   arr:ARRAY_OF INTEGER[100]:=[4,5,1,2,7,6,9,8] ;
+   card:INTEGER;
+
+PROCEDURE swap(var x,y:INTEGER )
+   VAR
+       aux:INTEGER;
+   BEGIN
+     aux:=x;
+     x:=y;
+     y:=aux;
+   END
+
+   PROCEDURE insertion_sort(var arr:ARRAY_OF INTEGER )
+   VAR
+       key,i,j:INTEGER;
+   BEGIN
+       FOR i FROM 1 TO arr.length-1 STEP 1  DO
+           key:=arr[i]
+           j:=i-1;
+           WHILE (j>=0 or key<arr[j]) DO
+               swap(key,arr[j]);
+               j:=j-1;
+           END_WHILE
+       END_FOR
+   END
+   
+BEGIN
+ insertion_sort(arr);
+ write("give me a card ");
+ read(card);
+ arr[arr.length]:=card;
+ insertion_sort(arr);   
+END
